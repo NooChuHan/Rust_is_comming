@@ -1,3 +1,58 @@
+## HashMap
+
+1. HashMap 생성
+    
+    ```rust
+    use std::collections::HashMap;
+    let mut map = HashMap::new();
+    ```
+    
+2. 값 삽입
+    
+    ```rust
+    map.insert(String::from("key"), value);
+    ```
+    
+3. 값 접근
+    
+    ```rust
+    if let Some(value) = map.get("key") {
+    // value 사용
+    }
+    ```
+    
+4. 키가 없을 경우 삽입
+    
+    ```rust
+    map.entry("key").or_insert(default_value);
+    ```
+    
+5. 기존 값 업데이트
+    
+    ```rust
+    let count = map.entry("key").or_insert(0);
+    *count += 1
+    ```
+    
+6. 반복
+    
+    ```rust
+    for (key, value) in &map {
+    // key와 value 사용
+    }
+    ```
+    
+7. 조건부 삽입
+    
+    ```rust
+    if !map.contains_key(&key) {
+        map.insert(key, value);
+    }
+    ```
+    
+
+## Module
+
 - 크레이트
     - 러스트 코드를 묶을 수 있는 가장 작은 단위
 - 바이너리 크레이트
@@ -84,3 +139,10 @@
             - 1개의 라이브러리 크레이트
             - 여러 개의 바이너리 크레이트
 
+## Options
+
+- 정의
+`Option<T>`는 값이 있거나 없을 수 있는 상황을 표현하는 열거형.
+- 변형:
+    - `Some(T)`: 값이 존재함
+    - `None`: 값이 없음
